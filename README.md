@@ -10,7 +10,7 @@ The script installs the following:
 - Docker Client  
 - k3d  
 - AWS CLI  
-- GCP CLI (gcloud)  
+<!-- - GCP CLI (gcloud)   -->
 - OpenJDK 11  
 - NVM (Node Version Manager) + Node v18  
 

@@ -31,7 +31,7 @@ echo \
   | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 sudo apt-get update -y
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Add user to docker group (rootless docker)
 sudo groupadd docker || true
@@ -45,21 +45,21 @@ echo "Docker installation complete."
 echo "=== Installing AWS CLI ==="
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip -o awscliv2.zip
-sudo ./aws/install
+sudo ./aws/install --update
 rm -rf aws awscliv2.zip
 
 ############################################################
 # INSTALL GCP CLI
 ############################################################
-echo "=== Installing GCP CLI ==="
-echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" \
-  | sudo tee /etc/apt/sources.list.d/google-cloud-sdk.list
+# echo "=== Installing GCP CLI ==="
+# echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" \
+#   | sudo tee /etc/apt/sources.list.d/google-cloud-sdk.list
 
-curl https://packages.cloud.google.com/apt/doc/apt-key.gpg \
-  | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+# curl https://packages.cloud.google.com/apt/doc/apt-key.gpg \
+#   | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
 
-sudo apt update -y
-sudo apt install -y google-cloud-cli
+# sudo apt update -y
+# sudo apt install -y google-cloud-cli
 
 ############################################################
 # INSTALL k3d
